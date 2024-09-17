@@ -14,7 +14,7 @@ include_directories(${TINY_ROOT}/kernel/evtdrv/include)
 include_directories(${TINY_ROOT}/kernel/hal/include)
 include_directories(${TINY_ROOT}/kernel/pm/include)
 
-aux_source_directory(${TINY_ROOT}/osal/cmsis_os CMSIS_SRCS)
+set(CMSIS_SRCS ${TINY_ROOT}/osal/cmsis_os/cmsis_os.c)
 aux_source_directory(${TINY_ROOT}/kernel/core CORE_SRCS)
 aux_source_directory(${TINY_ROOT}/kernel/evtdrv EVTDRV_SRCS)
 aux_source_directory(${TINY_ROOT}/kernel/pm PM_SRCS)

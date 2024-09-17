@@ -1,20 +1,19 @@
 #include "mcu_init.h"
 #include "tos_k.h"
 #include "mqttclient.h"
-#include "cjson.h"
+#include "cJSON.h"
 #include "sal_module_wrapper.h"
 
 #define USE_ESP8266
-//#define USE_NB_BC35
-//#define USE_BC26
-//#define USE_EC200S
 
-#if defined(USE_ESP8266)
+//#define USE_EC600S
+
+#ifdef USE_ESP8266
 #include "esp8266.h"
-#elif defined(USE_BC26)
-#include "bc26.h"
-#elif defined(USE_EC200S)
-#include "ec200s.h"
+#endif
+
+#ifdef USE_EC600S
+#include "ec600s.h"
 #endif
 
 #ifdef USE_ESP8266 
@@ -102,17 +101,8 @@ void mqttclient_task(void)
     esp8266_join_ap("Mculover666", "mculover666");
 #endif
 
-#ifdef USE_NB_BC35
-    int bc35_28_95_sal_init(hal_uart_port_t uart_port);
-    bc35_28_95_sal_init(HAL_UART_PORT_0);
-#endif
-
-#ifdef USE_BC26
-    bc26_sal_init(HAL_UART_PORT_2);
-#endif
-
-#ifdef USE_EC200S
-    ec200s_sal_init(HAL_UART_PORT_2);
+#ifdef USE_EC600S
+    ec600s_sal_init(HAL_UART_PORT_2);
 #endif
 
     mqtt_log_init();

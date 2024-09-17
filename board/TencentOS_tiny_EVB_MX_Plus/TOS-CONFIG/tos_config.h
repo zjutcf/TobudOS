@@ -7,9 +7,9 @@
 
 #define TOS_CFG_ROUND_ROBIN_EN          0u
 
-#define TOS_CFG_OBJECT_VERIFY_EN           1u
+#define TOS_CFG_OBJECT_VERIFY_EN        1u
 
-#define TOS_CFG_TASK_DYNAMIC_CREATE_EN  1u
+#define TOS_CFG_OBJ_DYNAMIC_CREATE_EN   1u
 
 #define TOS_CFG_EVENT_EN                1u
 
@@ -38,6 +38,8 @@
 #define TOS_CFG_TICKLESS_EN             0u
 
 #define TOS_CFG_SEM_EN                  1u
+
+#define TOS_CFG_BARRIER_EN              1u
 
 #define TOS_CFG_TASK_STACK_DRAUGHT_DEPTH_DETACT_EN      1u
 

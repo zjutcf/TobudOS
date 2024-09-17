@@ -82,7 +82,7 @@ void mqtt_demo_task(void)
     
     device_info_t dev_info;
     memset(&dev_info, 0, sizeof(device_info_t));
-    char str[16];   
+    char str[30];   
     size_t mail_size;
     uint8_t report_error_count = 0;
     char client_token[10];
@@ -126,7 +126,7 @@ void mqtt_demo_task(void)
         tos_sleep_ms(5000);
     }
     
-    /* 开始订阅topic */
+    /* 开始订阅 topic */
     size = snprintf(report_reply_topic_name, TOPIC_NAME_MAX_SIZE, "$thing/down/property/%s/%s", product_id, device_name);
 
     if (size < 0 || size > sizeof(report_reply_topic_name) - 1) {
@@ -167,7 +167,7 @@ void mqtt_demo_task(void)
             printf("data[%d]:%d ug/m3\r\n", i+1, pm2d5_value.data[i]);
         }
         
-        /* 显示PM2.5的值 */
+        /* 显示 PM2.5 的值 */
         OLED_Clear();
         sprintf(str, "PM2.5:%4d ug/m3", pm2d5_value.pm2d5_data.data2);
         OLED_ShowString(0,0,(uint8_t*)str,16);
@@ -209,7 +209,7 @@ void application_entry(void *arg)
 {
     char *str = "TencentOS-Tiny";
     
-    /* 初始化OLED */
+    /* 初始化 OLED */
     OLED_Init();
     OLED_Clear();
     OLED_ShowString(0, 0, (uint8_t*)str, 16);
